@@ -1,0 +1,44 @@
+.Container{
+    text-align: center;
+    margin-top: 20px !important;
+    height: 480px;
+    width: 500px;
+    background-color: rgba(229, 224, 234, 0.566);
+    margin: auto;
+    padding-top: 20px;
+    border-radius: 20px;
+}
+.heading{
+    color:rgba(240, 25, 25, 0.779)
+}
+.input{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    
+    border-radius: 5px;
+    border-color: rgb(69, 31, 206);
+    outline: none;
+    width: 380px;
+    height: 30px;
+
+}
+.btn{
+    background-color:rgba(240, 25, 25, 0.779);
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 26px;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    cursor:pointer;
+}
+.error{
+    color: red;
+}
+.btn:disabled{
+    background-color: rgb(173, 173, 229);;
+}

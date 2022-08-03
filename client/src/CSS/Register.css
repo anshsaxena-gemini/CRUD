@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .App{
+    text-align: center;
+  }
+  .RegisterDetails{
+    margin: 30px auto;
+    width: 400px;
+    height: 450px;
+    background-color: rgba(232, 225, 236, 0.589);
+    border-radius: 20px;
+   
+  
+  }
+  
+  .loginLink{
+   
+    font-size: 12px;
+    color: rgb(141, 11, 167);
+    font-family: Arial, Helvetica, sans-serif;
+  
+  }
+  .loginLink #link{
+    text-decoration: none;
+    border-bottom: 1px solid rgb(141, 11, 167);;
+    font-size: 16px;
+  }
+  input{
+    
+    padding: 3px;
+    margin: 10px;
+    font-size: 20px;
+    outline: none;
+    border-style: none;
+    border-bottom: 2px solid rgb(141, 11, 167);
+  
+  }
+  label{
+    font-size: 22px;
+  }
+  button{
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: rgb(141, 11, 167);
+    border-style: none;
+    color: white;
+    border-radius: 3px;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    
+  }
+  button:hover{
+    background-color: rgb(204, 27, 239);
+  }
+  #head{
+    background-color: rgb(141, 11, 167);
+    color: white;
+  font-size: 30px !important;
+  margin-bottom: 50px;
+  font-family:Arial, Helvetica, sans-serif; 
+    
+  }
+  
+  .error{
+    color: red;
+  }
+  .radio label{
+    font-size: 17px;
+  }
+  .checkbox label{
+    font-size: 15px;
+    
+  }
+  .checkbox{
+    margin-top: 6px;
+    margin-right: 50px;
+  }
+  input[type=text]{
+    width: 300px;
+    background: transparent;
+    margin-top: 25px;
+  }
+  input[type=password]{
+    width: 300px;
+    background: transparent;
+    margin-top: 25px;
+  }
+  .content{
+    margin-top: 40px;
+  }

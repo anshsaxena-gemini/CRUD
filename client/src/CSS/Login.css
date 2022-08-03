@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.LoginDetails{
+   
+    margin: 30px auto;
+    width: 400px;
+    height: 320px;
+    background-color: rgba(232, 225, 236, 0.589);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.Header{
+
+    text-align:center;
+    padding-top: 25px;
+    
+}
+button{
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: rgb(141, 11, 167);
+    border-style: none;
+    color: white;
+    border-radius: 3px;
+    padding-left: 125px;
+    padding-right: 125px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    
+  }
+  button:hover{
+    background-color: rgb(204, 27, 239);
+  }
