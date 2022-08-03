@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs')
 
 
 const userName = "AnshSaxena"
-const _password = "Smitch%405601";
+const _password = "abc%405601";
 const cluster = "cluster0";
 const dbName = "userDetails";
 
@@ -38,9 +38,9 @@ db.once("open",function(){
   
 });
 
-const API = "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";
 
-sgMail.setApiKey(API)
+
+// sgMail.setApiKey(API)
 
 const message ={
   to: "ansh.saxena_cs19@gla.ac.in",

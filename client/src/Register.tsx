@@ -60,11 +60,13 @@ function Register() {
           }).then((response: any)=>{
              if(response.data.error === "User exists"){
               toast("You are Already Registered")
+              formik.values.name=""
               
             }
           else{
               toast("Regsitered Successfully!");
           }
+
             
           })
           
