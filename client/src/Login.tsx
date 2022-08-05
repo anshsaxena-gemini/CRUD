@@ -5,7 +5,8 @@ import { Link ,useNavigate} from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import * as yup from 'yup';
 import styles from './Form.module.css'
-const { default: Axios } = require('axios');
+const { default: Axios } = require('axios')
+
 function Login() {
 
     const formik = useFormik(
@@ -41,6 +42,7 @@ function Login() {
          
             
             if(res.data.status === "ok"){
+              
               navigate("./Home")
             }
             if(res.data.error === "Invalid Password"){

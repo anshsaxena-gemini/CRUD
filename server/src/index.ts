@@ -4,11 +4,12 @@ const app = express();
 const details = require('../models/Schema')
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail')
+
 // const bcrypt = require('bcryptjs')
 
 
 const userName = "AnshSaxena"
-const _password = "pass@5601";
+const _password = "pass%405601";
 const cluster = "cluster0";
 const dbName = "userDetails";
 
@@ -106,7 +107,15 @@ app.post("/login",
 
 // get api
 
-app.get("/")
+app.get("/get",
+  async(req: any,res: any)=>{
+    details.find({},(err: any,result: any)=>{
+      if(err){
+        res.send(err);
+      }
+      res.send(result);
+    })
+} )
 
 
 app.listen(3003,()=>{
