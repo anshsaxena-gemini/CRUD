@@ -1,6 +1,8 @@
 
 import { useFormik } from 'formik'
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
+import { Link ,useNavigate} from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import * as yup from 'yup';
 import styles from './Form.module.css'
 const { default: Axios } = require('axios');
@@ -23,7 +25,8 @@ function Login() {
          }
     );
 
-    const [foodList,setFoodList] = useState<any[]>([])
+    // const [foodList,setFoodList] = useState<any[]>([])
+    const navigate = useNavigate();
  
     const handleSubmit =(event: { preventDefault: () => void; }) =>{
           event.preventDefault();
@@ -31,25 +34,40 @@ function Login() {
         if(formik.values.email.length===0 || formik.values.password.length===0){
             return;
         }
-        Axios.post('http://localhost:3003/insert',{
+        Axios.post('http://localhost:3003/login',{
            email:formik.values.email,
            password:formik.values.password,
+          }).then((res: any)=>{
+         
+            
+            if(res.data.status === "ok"){
+              navigate("./Home")
+            }
+            if(res.data.error === "Invalid Password"){
+              toast("Invalid Password!", { autoClose: 1500 });
+            }
+            else{
+             toast("User not found !",{ autoClose: 1500 })
+            }
+            formik.resetForm();
           })
       
-        alert("success")
+    
        
           
     }
   
   return (
+    
     <div className={styles.Container}>
+<ToastContainer/>
         <h1 className={styles.heading}>Sign In</h1>
      <form onSubmit={handleSubmit}>
     <input
     className={styles.input}
      type="text"
      name='email'
-     placeholder='Enter your Email'
+     placeholder='Enter your email'
      value={formik.values.email}
      onChange={formik.handleChange}
      onBlur={formik.handleBlur} />
@@ -61,7 +79,7 @@ function Login() {
     className={styles.input}
      type="password"
      name='password'
-     placeholder='Create a password'
+     placeholder='Enter your password'
      value={formik.values.password}
      onChange={formik.handleChange}
      onBlur={formik.handleBlur} />
@@ -71,7 +89,7 @@ function Login() {
      <br></br>
      <button type='submit' className={styles.btn}>Login</button>
      </form>
-
+     <p>Not Registered? <Link to='/' className={styles.link}>Register Now</Link></p>
     </div>
   )
 }

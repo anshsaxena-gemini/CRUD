@@ -2,7 +2,8 @@
 import { useFormik } from 'formik'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
+import {Link, useNavigate} from 'react-router-dom'
 import * as yup from 'yup';
 import styles from './Form.module.css'
 // const sgMail = require('@sendgrid/mail')
@@ -26,9 +27,11 @@ function Register() {
             ),
             onSubmit: values => {
                 alert(JSON.stringify(values, null, 1));
+                
             },
          }
     );
+   
 
     const [foodList,setFoodList] = useState<any[]>([])
 
@@ -60,13 +63,13 @@ function Register() {
           }).then((response: any)=>{
              if(response.data.error === "User exists"){
               toast("You are Already Registered")
-              formik.values.name=""
+              
               
             }
           else{
               toast("Regsitered Successfully!");
           }
-
+          formik.resetForm();
             
           })
           
@@ -123,6 +126,8 @@ function Register() {
      <br></br>
      <button type='submit' className={styles.btn}>Register</button>
      </form>
+    
+     <p>Already Registered? <Link to='/Login' className={styles.link}>Sign In</Link></p>
 
     </div>
   )
@@ -134,3 +139,7 @@ function Register() {
 
 
 export default Register
+
+function resetForm(arg0: {}) {
+  throw new Error('Function not implemented.');
+}

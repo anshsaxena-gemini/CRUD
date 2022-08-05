@@ -4,11 +4,11 @@ const app = express();
 const details = require('../models/Schema')
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail')
-const bcrypt = require('bcryptjs')
+// const bcrypt = require('bcryptjs')
 
 
 const userName = "AnshSaxena"
-const _password = "abc%405601";
+const _password = "pass@5601";
 const cluster = "cluster0";
 const dbName = "userDetails";
 
@@ -84,22 +84,29 @@ app.post("/insert",
         
 
 )
-// app.get("/read",
-//         async(req: { body: { foodName: any; days: any; }; },res: any)=>{
-//            Schema.find(
-//             {},
-//             (err: any,result: any)=>{
-//               if(err){
-//                 res.send(err)
-//               }
-//               res.send(result);
-//             }
-//            )
-        
-//         }
-        
+app.post("/login",
+  async (req: any,res: any) =>{
+       const {email,password} = req.body;
 
-// )
+       const user = await details.findOne({email});
+       if(user){
+        if(await user.password === password){
+          return res.json({status:"ok"})
+        }
+        else{
+          return res.json({status:"error",error:"Invalid Password"})
+        }
+      }
+      else{
+        return res.json({status:"error",error:"User Not found"})
+      }
+  } 
+
+)
+
+// get api
+
+app.get("/")
 
 
 app.listen(3003,()=>{
