@@ -30,16 +30,7 @@ function Home() {
    
   const handleSubmit =async ()=>{
 
-  const options = {
-    method: 'POST',
-    url: 'https://trains.p.rapidapi.com/',
-    headers: {
-      'content-type': 'application/json',
-      'X-RapidAPI-Key': 'bf3cf04552msh2972ad3072436adp1771d8jsn478315caba36',
-      'X-RapidAPI-Host': 'trains.p.rapidapi.com'
-    },
-    data: {"search":input}
-  };
+  
   
   await axios.request(options).then(function (response) {
     setTrainData(response.data[0])
