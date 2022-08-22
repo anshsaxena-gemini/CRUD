@@ -9,7 +9,7 @@ const sgMail = require('@sendgrid/mail')
 
 
 const userName = "AnshSaxena"
-const _password = "Smitch%405601";
+const _password = "S05601";
 const cluster = "cluster0";
 const dbName = "userDetails";
 
