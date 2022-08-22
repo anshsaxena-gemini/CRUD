@@ -6,6 +6,7 @@ import { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import * as yup from 'yup';
 import styles from './Form.module.css'
+import { useMutation } from 'react-query';
 // const sgMail = require('@sendgrid/mail')
 const { default: Axios } = require('axios');
 
@@ -47,41 +48,31 @@ function Register() {
 //   html:"<h1>Hello form Ansh Saxena</h1>"
 // }
 
+   const addUserData = async (data: any) =>{
+     return await Axios.post('http://localhost:3003/insert',data);
+   }
+
+   const {mutate} = useMutation(addUserData,{
+       onSuccess(response:any){
+        console.log(response);
+        if(response.data.error === "User exists"){
+          toast("You are Already Registered",{ autoClose: 1500 })  
+        }
+        else{
+          toast("Regsitered Successfully!",{ autoClose: 1500 });
+      }
+      formik.resetForm();
+       }
+   })
  
-    const handleSubmit =(event: { preventDefault: () => void; }) =>{
-          event.preventDefault();
-        
-        // if(formik.values.name.length ===0 || formik.values.email.length===0 || formik.values.password.length===0){
-        //     return;
-        // }
-      
-        
-         Axios.post('http://localhost:3003/insert',{
-           name:formik.values.name,
-           email:formik.values.email,
-           password:formik.values.password,
-          }).then((response: any)=>{
-             if(response.data.error === "User exists"){
-              toast("You are Already Registered")
-              
-              
-            }
-          else{
-              toast("Regsitered Successfully!");
-          }
-          formik.resetForm();
-            
-          })
-          
-          // localStorage.setItem("email",formik.values.email);
-        //   sgMail.send(message)
-        //   .then((response: any) => console.log("Email Sent"))
-        //   .catch((console.error()));
-        // alert("success")
-       
-          
+   const handleSubmit =()=>{
+    const formData = {
+      name:formik.values.name,
+      email:formik.values.email,
+      password:formik.values.password
     }
-  
+    mutate(formData);
+ }
   return (
     <div className={styles.Container}>
       <ToastContainer 

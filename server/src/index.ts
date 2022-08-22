@@ -9,7 +9,7 @@ const sgMail = require('@sendgrid/mail')
 
 
 const userName = "AnshSaxena"
-const _password = "pass%405601";
+const _password = "Smitch%405601";
 const cluster = "cluster0";
 const dbName = "userDetails";
 
@@ -85,6 +85,7 @@ app.post("/insert",
         
 
 )
+
 app.post("/login",
   async (req: any,res: any) =>{
        const {email,password} = req.body;

@@ -6,10 +6,12 @@ import Axios from "axios";
 import Register from "./Register";
 import Login from "./Login";
 import Home from "./Home";
+import { QueryClient } from "react-query";
 
 function App() {
   return (
     <div>
+    
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Register />} />
@@ -17,6 +19,7 @@ function App() {
           <Route path="Login/Home" element={<Home />} />
         </Routes>
       </BrowserRouter>
+      
     </div>
   );
 }

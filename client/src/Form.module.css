@@ -8,12 +8,59 @@
   padding-top: 20px;
   border-radius: 20px;
 }
+.details{
+ margin-left: 41%;
+
+}
+.details p{
+  color:rgba(12, 12, 143, 0.811)
+}
+.Card{
+
+  /* background-color: rgba(255, 248, 248, 0.957); */
+  border-radius: 10px;
+  /* background-color: rgb(235, 227, 220); */
+  text-align: center;
+  margin: auto;
+ padding-top: 80px;
+
+}
+.navbar{
+  height: 55px;
+  width: 100%;
+  background-color: rgb(44, 5, 150);
+  position: sticky;
+  top:0px;
+  color:white;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.head{
+  margin: 0px;
+  padding: 0px;
+  margin-left: 3%;
+  padding-top: 4px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  
+}
 .heading {
   color: rgba(240, 25, 25, 0.779);
+
+}
+.linkforLogout{
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  border-bottom: 2px solid white;
+  
 }
 .link {
   text-decoration: none;
   color: rgba(240, 25, 25, 0.779);
+  
 }
 .input {
   font-size: 20px;
