@@ -36,17 +36,6 @@ function Register() {
 
     const [foodList,setFoodList] = useState<any[]>([])
 
-//     const API = "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";
-
-// sgMail.setApiKey(API)
-
-// const message ={
-//   to: "ansh.saxena@gla.ac.in",
-//   from : "ansh562000@gmail.com",
-//   subject:"Welcome to CRUD!",
-//   text:"Hello form Ansh Saxena",
-//   html:"<h1>Hello form Ansh Saxena</h1>"
-// }
 
    const addUserData = async (data: any) =>{
      return await Axios.post('http://localhost:3003/insert',data);
